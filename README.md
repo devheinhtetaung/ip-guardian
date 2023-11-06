@@ -65,7 +65,7 @@ Here are the main groups of API actions, along with the specific requirements fo
 ### App Group
 
 - **checkUpdate**
-  - **Description:** Check for updates in the application.
+  - **Description:** Check for update version of the application.
   - **No additional required parameters.**
 
 - **checkMaintenance**
