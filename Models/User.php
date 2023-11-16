@@ -15,9 +15,9 @@ class User {
         $query = "INSERT INTO `user` (`email`, `password`, `personal_token`) VALUES ('$email', '$password', '$personal_token');";
         $db = new DBConnect();
         if($db->execute($query)){
-            return "{'status':200,'message':'Registered successfully!'}";
+            return '{"status":200,"message":"Registered successfully!","token":"'.$personal_token.'"}';
         }else{
-            return "{'status':400,'message':'Failed to register account!'}";
+            return '{"status":400,"message":"Failed to register account!"}';
         }
     }
     public static function loginWithEmail($email,$password){
@@ -30,9 +30,9 @@ class User {
             $row = mysqli_fetch_row($result);
             $hash_password = $row[0];
             if(password_verify($password, $hash_password)){
-                return "{'status':200,'message':'Login successfully!'}";
+                return '{"status":200,"message":"Login successfully!"}';
             }else{
-                return "{'status':400,'message':'Email or Password is not correct!'}";
+                return '{"status":400,"message":"Email or Password is not correct!""}';
             }
         }
     }
@@ -42,11 +42,11 @@ class User {
             $db = new DBConnect();
             $result = $db->execute($query);
             if(mysqli_num_rows($result) > 0){
-                return "{'status':200,'message':'Login successfully!'}";
+                return '{"status":200,"message":"Login successfully!"}';
             }
-            return "{'status':400,'message':'Token : Not Found!'}";
+            return '{"status":400,"message":"Token : Not Found!"}';
         }
-        return "{'status':400,'message':'Invalid Token!'}";
+        return '{"status":400,"message":"Invalid Token!"}';
     }
     public static function generatePT(){
         $data = "123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz@#";
