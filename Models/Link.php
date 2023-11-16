@@ -9,23 +9,23 @@ class Link{
         $query = "INSERT INTO `link` (`linkId`,`whitelistCountry`,`destinationLink`,`shortenUrl`) VALUES ('$linkId','$whitelistCountry','$destinationLink','$shortenUrl');";
         $db = new DBConnect();
         if($db->execute($query)){
-            return "{'status':200,'message':Created Link Successfully.}";
+            return '{"status":200,"message":"Created Link Successfully.","Link":"'.$shortenUrl.'"}';
         }else{
-            return "{'status':200,'message':Failed to create Link!}";
+            return '{"status":200,"message":"Failed to create Link!"}';
         }
     }
 
     public static function delete($linkId){
         if(is_numeric($linkId)){
             if(static::findOrfail($linkId) === false){
-                exit("{'status':404,'message':Link Not Found!}");
+                exit('{"status":404,"message":"Link Not Found!"}');
             }
             $query = "DELETE FROM `link` WHERE `linkId` = '$linkId';";
             $db = new DBConnect();
             if($db->execute($query)){
-                return "{'status':200,'message':Deleted Link Successfully.}";
+                return '{"status":200,"message":"Deleted Link Successfully."}';
             }else{
-                return "{'status':200,'message':Failed To Delete Link!}";
+                return '{"status":200,"message":"Failed To Delete Link!"}';
             }
         }
         return false;
@@ -60,9 +60,9 @@ class Link{
         $WhiteListCountry = explode(",",$idInfo['data'][0]['whitelistCountry']);
         $link = $idInfo['data'][0]['destinationLink'];
         if(in_array($CC,$WhiteListCountry)){
-            exit("{'status':200,'message':'Authorized IP','destinationLink':'$link'}");
+            exit('{"status":200,"message":"Authorized IP","destinationLink":"'.$link.'"}');
         }else{
-            exit("{'status':400,'message':'Unauthorized IP'}");
+            exit('{"status":400,"message":"Unauthorized IP"}');
         }
     }
     private static function checkIP($ip){
@@ -83,8 +83,8 @@ class Link{
             while($row = mysqli_fetch_assoc($returnData)){
                 $data[] = $row;
             }
-            $response['status'] = 200;
-            $response['data'] = $data;
+            $response["status"] = 200;
+            $response["data"] = $data;
             return json_encode($response,true);
         }else{
             return false;
@@ -95,7 +95,7 @@ class Link{
         $db = new DBConnect();
         $result = $db->execute($query);
         $row = mysqli_fetch_row($result);
-        $wplink = $row[0].'?id='.$linkId;
+        $wplink = $row[0].'&id='.$linkId;
         return static::shortenUrl($wplink);
     }
     private static function shortenUrl($url){
