@@ -12,25 +12,30 @@ $UserMethod = ['signup','loginWithEmail','loginWithToken'];
 $LinkMethod = ['create','delete','all','findOrfail','validateIP'];
 $AppMethod = ['checkUpdate','checkMaintenance','AdInfo'];
 function LinkClass($action){
-    switch($action){
-        case 'create':
-            $linkId = rand(0000,9999);
-            $whitelistCountry = $_POST['whitelistCountry'];
-            $destinationLink = $_POST['destinationLink'];
-            exit(Link::create($linkId,$whitelistCountry,$destinationLink));
-        case 'delete':
-            $linkId = $_POST['linkId'];
-            exit(Link::delete($linkId));
-        case 'all':
-            $limit = $_POST['limit'];
-            exit(Link::all($limit));
-        case 'findOrfail':
-            $linkId = $_POST['linkId'];
-            exit(Link::findOrfail($linkId));
-        case 'validateIP':
-            $linkId = $_POST['linkId'];
-            $ip = $_POST['ip'];
-            exit(Link::validateIP($ip, $linkId));
+    $auth = User::loginWithToken($_POST['token']);
+    if($auth['status'] == 200){
+        switch($action){
+            case 'create':
+                $linkId = rand(0000,9999);
+                $whitelistCountry = $_POST['whitelistCountry'];
+                $destinationLink = $_POST['destinationLink'];
+                exit(Link::create($linkId,$whitelistCountry,$destinationLink));
+            case 'delete':
+                $linkId = $_POST['linkId'];
+                exit(Link::delete($linkId));
+            case 'all':
+                $limit = $_POST['limit'];
+                exit(Link::all($limit));
+            case 'findOrfail':
+                $linkId = $_POST['linkId'];
+                exit(Link::findOrfail($linkId));
+            case 'validateIP':
+                $linkId = $_POST['linkId'];
+                $ip = $_POST['ip'];
+                exit(Link::validateIP($ip, $linkId));
+        }
+    }else{
+        exit('{"status":404,"message":"You are not authorized to perform this action"}');
     }
 }
 function UserClass($action){
