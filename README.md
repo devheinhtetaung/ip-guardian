@@ -45,18 +45,22 @@ Here are the main groups of API actions, along with the specific requirements fo
 - **create**
   - **Description:** Create a new link.
   - **Required Parameters:** `destinationLink` and `whitelistCountry` in the POST data field.
+  - **Required Parameters:** `token` in the POST data field.
 
 - **delete**
   - **Description:** Delete a link.
   - **Required Parameters:** `linkId` in the POST data field.
+  - **Required Parameters:** `token` in the POST data field.
 
 - **findOrfail**
   - **Description:** Find a link or fail if not found.
   - **Required Parameters:** `linkId` in the POST data field.
+  - **Required Parameters:** `token` in the POST data field.
 
 - **all**
   - **Description:** Retrieve multiple links with a limit.
   - **Required Parameters:** `limit` (an integer) in the POST data field.
+  - **Required Parameters:** `token` in the POST data field.
 
 - **validateIP**
   - **Description:** Validate an IP address for a specific link.
