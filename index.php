@@ -18,11 +18,14 @@ if(!isset($_GET['action'])) {
                 text-align: center;
                 margin: 0;
                 padding: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
             }
     
             .container {
                 max-width: 600px;
-                margin: 100px auto;
                 background-color: #fff;
                 padding: 20px;
                 border-radius: 8px;
