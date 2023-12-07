@@ -11,7 +11,6 @@ class DBConnect{
     public $run;
     public $db_password;
     public function __construct(){
-        Env::put();
         $this->db_host = getenv('DB_HOST');
         $this->db_port = getenv('DB_PORT');
         $this->db_name = getenv('DB_NAME');
