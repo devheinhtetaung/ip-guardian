@@ -5,87 +5,59 @@ use Models\Link;
 use Models\User;
 require 'vendor/autoload.php';
 if(!isset($_GET['action'])) {
-    $page = '<!DOCTYPE html>
+    $page = '<html lang="en">
 
-    <html
-     
-    lang="en">
-    
     <head>
-    
-        
-    <meta
-     
-    charset="UTF-8">
-    
-        
-    <meta
-     
-    name="viewport"
-     
-    content="width=device-width, initial-scale=1.0">
-    
-        
-    <title>IP Guardian - Maximize Your Shorten URL Income</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-0evHe/X+4u2/QPOq4hJXvAaCq/mZYGlvjYfX27KwtGWLPgT9uAuh5yYn59x+fWv" crossorigin="anonymous">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Welcome to IP Guardian</title>
         <style>
             body {
-                background-color: #f5f5f5;
-                font-family: sans-serif;
+                font-family: \'Arial\', sans-serif;
+                background-color: #f4f4f4;
+                text-align: center;
+                margin: 0;
+                padding: 0;
             }
     
-            .hero {
-                background-image: url(https://source.unsplash.com/random/1600x900);
-                background-size: cover;
-                background-position: center;
-                height: 50vh;
-            }
-    
-            .hero-content {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                height: 100%;
+            .container {
+                max-width: 600px;
+                margin: 100px auto;
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             }
     
             h1 {
-                color: #fff;
-                font-size: 3rem;
-                font-weight: bold;
-                margin-bottom: 1rem;
+                color: #333;
             }
     
             p {
-                color: #fff;
-                font-size: 1.5rem;
-                line-height: 1.5;
-                margin-bottom: 2rem;
+                color: #555;
+                margin-bottom: 20px;
             }
     
             .btn {
-                background-color: #007bff;
-                color: #fff;
+                display: inline-block;
                 padding: 10px 20px;
-                border-radius: 5px;
-                font-size: 1.2rem;
-                cursor: pointer;
-            }
-    
-            .btn:hover {
-                background-color: #0062cc;
+                font-size: 16px;
+                background-color: #3498db;
+                color: #fff;
+                text-decoration: none;
+                border-radius: 4px;
             }
         </style>
     </head>
+    
     <body>
-        <div class="hero">
-            <div class="hero-content">
-                <h1>Welcome to IP Guardian</h1>
-                <p>Maximize your Shorten URL income with IP Guardian</p>
-                <a href="https://t.me/sidney" target="_blank" class="btn">Get Started Today</a>
-            </div>
+        <div class="container">
+            <h1>Welcome to IP Guardian</h1>
+            <p>Maximize your Shorten URL income with IP Guardian.</p>
+            <a href="https://t.me/sidney" class="btn">Get Started</a>
         </div>
     </body>
+    
     </html>';
     echo $page;
 }
