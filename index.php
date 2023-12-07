@@ -56,7 +56,7 @@ if(!isset($_GET['action'])) {
     <body>
         <div class="container">
             <h1>Welcome to IP Guardian</h1>
-            <p>Maximize your URL Shortener Revenur with IP Guardian.</p>
+            <p>Maximize your URL Shortener Revenue with IP Guardian.</p>
             <a href="https://t.me/sidney" class="btn">Get Started</a>
         </div>
     </body>
