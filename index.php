@@ -70,6 +70,7 @@ $LinkMethod = ['create','delete','all','findOrfail'];
 $AppMethod = ['checkUpdate','checkMaintenance','AdInfo'];
 function LinkClass($action){
     $auth = User::loginWithToken($_POST['token']);
+    $auth = json_decode($auth,TRUE);
     if($auth['status'] == 200){
         switch($action){
             case 'create':
