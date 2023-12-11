@@ -2,7 +2,6 @@
 namespace Models;
 require  __DIR__.'/../vendor/autoload.php';
 use Models\DBConnect;
-use Models\Env;
 class Link{
     public static function create($linkId,$whitelistCountry,$destinationLink){
         $shortenUrl = static::BindUrlWithId($linkId);
@@ -95,7 +94,7 @@ class Link{
         $db = new DBConnect();
         $result = $db->execute($query);
         $row = mysqli_fetch_row($result);
-        $wplink = $row[0].'&id='.$linkId;
+        $wplink = $row[0].'?id='.$linkId;
         return static::shortenUrl($wplink);
     }
     private static function shortenUrl($url){
