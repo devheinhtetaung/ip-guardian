@@ -57,7 +57,7 @@ class Link{
         $data = static::findOrfail($linkId);
         $idInfo = json_decode($data,true);
         $WhiteListCountry = explode(",",$idInfo['data'][0]['whitelistCountry']);
-        var_dump(in_array($CC,$WhiteListCountry));
+        var_dump($WhiteListCountry);
         $link = $idInfo['data'][0]['destinationLink'];
         if(in_array($CC,$WhiteListCountry)){
             exit('{"status":200,"message":"Authorized IP","destinationLink":"'.$link.'"}');
