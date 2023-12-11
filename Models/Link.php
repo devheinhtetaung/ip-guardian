@@ -99,7 +99,6 @@ class Link{
         return static::shortenUrl($wplink);
     }
     private static function shortenUrl($url){
-        Env::put();
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, 'https://api.tinyurl.com/create');
         $payload = array(
