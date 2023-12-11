@@ -108,7 +108,7 @@ class Link{
         $header = array(
             "accept: application/json",
             "Content-Type: application/json",
-            "Authorization: Bearer ".getenv('API_KEY')
+            "Authorization: Bearer ".getenv('TINY_URL_API_KEY')
         );
         curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
         curl_setopt($curl, CURLOPT_POSTFIELDS,json_encode($payload));
