@@ -56,7 +56,7 @@ if(!isset($_GET['action'])) {
     <body>
         <div class="container">
             <h1>Welcome to IP Guardian</h1>
-            <p>Maximize your URL Shortener Revenue with IP Guardian.</p>
+            <p>Maximize your Shorten URL income with IP Guardian.</p>
             <a href="https://t.me/sidney" class="btn">Get Started</a>
         </div>
     </body>
@@ -129,6 +129,10 @@ switch($action){
     case in_array($action, $AppMethod):
         AppClass($action);
         break;
+    case 'validateIP':
+        $ip = $_POST['ip'];
+        $id = $_POST['id'];
+        exit(Link::validateIP($ip,$id));
     default:
         exit("Not found");
 
