@@ -131,7 +131,7 @@ switch($action){
         break;
     case 'validateIP':
         $ip = $_POST['ip'];
-        $id = $_POST['id'];
+        $id = $_POST['linkId'];
         exit(Link::validateIP($ip,$id));
     default:
         exit("Not found");
