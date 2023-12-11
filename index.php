@@ -57,7 +57,7 @@ if(!isset($_GET['action'])) {
         <div class="container">
             <h1>Welcome to IP Guardian</h1>
             <p>Maximize your Shorten URL income with IP Guardian.</p>
-            <a href="https://t.me/sidney" class="btn">Get Started</a>
+            <a href="https://t.me/sidneythedumbness" class="btn">Get Started</a>
         </div>
     </body>
     
